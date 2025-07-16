@@ -3,7 +3,7 @@
 ## Project Structure
 
 v-server-setup/
-CHECKLIST.md       README.md          config/
+CHECKLIST.pdf       README.md          config/
 
 ---
 
@@ -31,7 +31,6 @@ CHECKLIST.md       README.md          config/
 ### 3. NGINX Web Server
 
 * Installed and verified NGINX is up and running.
-* Server is reachable via browser on http://188.245.220.182.
 
 ### 4. GitHub Integration
 
@@ -57,6 +56,6 @@ Clone the project to your local machine:
         cd v-server-setup
 ```
 
-Follow the instructions in [CHECKLIST.md](./CHECKLIST.md) to configure your server securely and step-by-step.
+Follow the instructions in [CHECKLIST.pdf](./CHECKLIST.pdf) to configure your server securely and step-by-step.
 
 ---

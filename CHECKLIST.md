@@ -2,7 +2,6 @@
 
 Project Name: v-server-setup
 Repository URL: [https://github.com/behrouzRajaei/v-server-setup](https://github.com/behrouzRajaei/v-server-setup)
-Server IP: 188.245.220.182
 Access Method: SSH (key-based only)
 
 ---
@@ -20,7 +19,6 @@ Access Method: SSH (key-based only)
 ## Web Server (NGINX)
 - [x] Installed NGINX: sudo apt install nginx
 - [x] Verified NGINX is active: systemctl status nginx
-- [x] Accessed server via web browser: http://188.245.220.182
 - [x] Verified NGINX default page is visible
 
 ---
@@ -38,8 +36,8 @@ Access Method: SSH (key-based only)
 - [x] Initialized git repo: git init
 - [x] Added remote: git remote add origin git@github.com:behrouzRajaei/v-server-setup.git
 - [x] Configured Git identity:
-          - git config --global user.name "Behrouz Rajaei"
-          - git config --global user.email "bmd.rajaei@gmail.com"
+          - git config --global user.name "XXX"
+          - git config --global user.email "XXX@example.com"
 - [x] Pushed to GitHub:
           - git add .
           - git commit -m "Initial commit"
