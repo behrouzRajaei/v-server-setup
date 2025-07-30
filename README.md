@@ -114,7 +114,7 @@ Displays the content of your public SSH key. You need to copy the entire output 
 ├──Go to Settings.
 ├──Go to SSH and GPG keys.
 ├──Choose New SSH key.
-├──Choose a name for projekt in Title and paste the entire output content of your public key in Key's section.
+├──Choose a name for project in Title and paste the entire output content of your public key in Key's section.
 └──Add SSH key.
 ```
 
