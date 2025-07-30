@@ -60,7 +60,8 @@ sudo systemctl restart ssh
 
 ### 2. NGINX Web Server
 
-* Installed and verified NGINX is up and running
+* Installe and verifie NGINX is up and running
+
 
 ```bash
 sudo apt update
