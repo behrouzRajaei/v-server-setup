@@ -27,31 +27,32 @@ v-server-setup
 
 ### 1. SSH Access Configuration
 
-* Created a new SSH key pair
+* Generate a new SSH key pair
 
 ```bash
 ssh-keygen -t ed25519 -C "<username>@<ip_address>"
 ```
 
-* Uploaded public key to the server
+* Upload the public key to the server
 
 ```bash
 ssh-copy-id <username>@<ip_address>
 ```
 
-* Disabled password login and PAM
+* Disable password-based login
 
 ```bash
 sudo nano /etc/ssh/sshd_config
 ```
 
-* Change the folowing items in sshd_config file
+* Edit the folowing line in the sshd_config file
+
 ```
-├── PasswordAuthentication no
-├── UsePAM no
-└── PermitRootlogin no
+PasswordAuthentication no
+
 ```
-* Restart service SSH
+
+* Test the configuration and restart the SSH service
 
 ```bash
 sudo sshd -t
@@ -60,7 +61,7 @@ sudo systemctl restart ssh
 
 ### 2. NGINX Web Server
 
-* Installed and verified NGINX is up and running
+* Install and start NGINX
 
 ```bash
 sudo apt update
@@ -69,48 +70,67 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
-* Create alternative for NGINX seite
+* Create a custom landing page
 
 ```bash
 cd /var/www/html
 sudo nano index.html
 ```
 
-* Edit the default `index.html` file and overwrite it with your own title and content to replace the default Nginx welcome page.
-* Test the website in browser
-http://<ip_address>
+* Edit the `index.html` file and replace the default content with your own title and content
+* Test the website in a browser
 
+```
+http://<ip_address>
+```
 
 ### 4. Git + GitHub Integration
 
-* Installed and verified Git
+* Install and verify Git
 
 ```bash
 sudo apt install git
 ```
 
-* Configure git by username and email_address
+* Configure Git by username and email
 
 ```bash
 git config --global user.name "<your_username>"
 git config --global user.email "<your_email@example.com>"
 ```
-* Clone the project repository using SSH:
 
-Go to your GitHub repository, click the green Code button, and select the SSH tab. Copy the SSH URL, then run:
+* Adding your SSH key to GitHub
+To authenticate with GitHub using SSH add the public key to your GitHub account.
+
+The command in below:
 
 ```bash
-git clone <your-ssh-url-here>
+cat ~/.ssh/id_ed25519.pub
 ```
 
-* Project version-controlled and documented.
+Displays the content of your public SSH key. You need to copy the entire output and then:
 
-## How to Use
+```
+├──Go to your GitHub account.
+├──Go to Settings.
+├──Go to SSH and GPG keys.
+├──Choose New SSH key.
+├──Choose a name for projekt in Title and paste the entire output content of your public key in Key's section.
+└──Add SSH key.
+```
 
-* Clone the project to your local machine:
+* Clone the project repository using SSH
+
+```
+├──Go to your GitHub repository.
+├──Click the green Code button.
+├──Select the SSH tab.
+└──Copy the SSH URL.
+```
+
 ```bash
-git clone <your-ssh-url-here>
-cd v-server-setup
+git clone <SSH URL>
 ```
-* The project is now version-controlled and connected to GitHub.
+
+* The project is now connected to GitHub and version controlled.
 ---
