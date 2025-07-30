@@ -48,8 +48,8 @@ sudo nano /etc/ssh/sshd_config
 * Change the folowing items in sshd_config file
 ```
 ├── PasswordAuthentication no
-├── UsePAM no
-└── PermitRootlogin no
+
+
 ```
 * Restart service SSH
 
