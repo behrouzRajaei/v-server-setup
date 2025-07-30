@@ -48,7 +48,12 @@ sudo nano /etc/ssh/sshd_config
 * Edit the folowing line in the sshd_config file
 
 ```
+<<<<<<< HEAD
 PasswordAuthentication no
+=======
+├── PasswordAuthentication no
+
+>>>>>>> 10d7988a8f149532a7bbd7a5728ac91e1f15414a
 
 ```
 
@@ -61,7 +66,12 @@ sudo systemctl restart ssh
 
 ### 2. NGINX Web Server
 
+<<<<<<< HEAD
 * Install and start NGINX
+=======
+* Installe and verifie NGINX is up and running
+
+>>>>>>> 10d7988a8f149532a7bbd7a5728ac91e1f15414a
 
 ```bash
 sudo apt update
