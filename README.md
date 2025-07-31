@@ -99,37 +99,42 @@ git config --global user.email "<your_email@example.com>"
 ```
 
 * Adding your SSH key to GitHub
-To authenticate with GitHub using SSH add the public key to your GitHub account.
-
-The command in below:
+To authenticate with GitHub using SSH, you need to add your public SSH key to your GitHub account.
+First run the following command to display the content of your public key:
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Displays the content of your public SSH key. You need to copy the entire output and then:
+Copy the entire output, then follow these steps:
 
 ```
 ├──Go to your GitHub account.
-├──Go to Settings.
-├──Go to SSH and GPG keys.
-├──Choose New SSH key.
-├──Choose a name for project in Title and paste the entire output content of your public key in Key's section.
-└──Add SSH key.
+├──Click your profile picture and go to Settings.
+├──Go to SSH and GPG keys from the left menu.
+├──Click New SSH key.
+├──Enter a title for this key.
+├──Paste the copied public key into the Key field.
+└──Click Add SSH key.
 ```
 
-* Clone the project repository using SSH
+* Cloning the repository using SSH
+To clone a repository using SSH:
 
 ```
-├──Go to your GitHub repository.
+├──Go to the repository on GitHub.
 ├──Click the green Code button.
 ├──Select the SSH tab.
 └──Copy the SSH URL.
 ```
 
+Then run:
+
 ```bash
 git clone <SSH URL>
 ```
+
+Replace <SSH URL> with the one you just copied.
 
 * The project is now connected to GitHub and version controlled.
 ---
