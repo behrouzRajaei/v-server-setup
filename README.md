@@ -1,18 +1,25 @@
-# v-server-setup
+v-server-setup
 
 ## Project Structure
-
-v-server-setup/
-CHECKLIST.pdf       README.md          config/
-
+```
+v-server-setup
+├── Checkliste.pdf
+└── README.md
+```
 ---
 
 ## Technologies Used
 
 * OpenSSH (key-based authentication only)
 * NGINX Web Server
-* UFW 
 * Git + GitHub
+
+---
+
+## Prerequisites
+
+* Linux Server
+* GitHub account
 
 ---
 
@@ -20,42 +27,114 @@ CHECKLIST.pdf       README.md          config/
 
 ### 1. SSH Access Configuration
 
-* Created a new SSH key pair.
-* Uploaded public key to the server.
-* Disabled password login and PAM.
-
-### 2. Firewall (UFW)
-
-* Enabled firewall and allowed only essential services (SSH + NGINX).
-
-### 3. NGINX Web Server
-
-* Installed and verified NGINX is up and running.
-
-### 4. GitHub Integration
-
-* Git initialized and connected to [GitHub repo](https://github.com/behrouzRajaei/v-server-setup).
-* Project version-controlled and documented.
-
----
-
-## Prerequisites
-
-* A Linux
-* Git and SSH installed locally
-* GitHub account
-
----
-
-## How to Use
-
-Clone the project to your local machine:
+* Generate a new SSH key pair
 
 ```bash
-        git clone git@github.com:behrouzRajaei/v-server-setup.git
-        cd v-server-setup
+ssh-keygen -t ed25519 -C "<username>@<ip_address>"
 ```
 
-Follow the instructions in [CHECKLIST.pdf](./CHECKLIST.pdf) to configure your server securely and step-by-step.
+* Upload the public key to the server
 
+```bash
+ssh-copy-id <username>@<ip_address>
+```
+
+* Disable password-based login
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+* Edit the folowing line in the sshd_config file
+
+```
+PasswordAuthentication no
+```
+
+* Test the configuration and restart the SSH service
+
+```bash
+sudo sshd -t
+sudo systemctl restart ssh
+```
+
+### 2. NGINX Web Server
+
+* Install and start NGINX
+
+```bash
+sudo apt update
+sudo apt install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+* Create a custom landing page
+
+```bash
+cd /var/www/html
+sudo nano index.html
+```
+
+* Edit the `index.html` file and replace the default content with your own title and content
+* Test the website in a browser
+
+```
+http://<ip_address>
+```
+
+### 4. Git + GitHub Integration
+
+* Install and verify Git
+
+```bash
+sudo apt install git
+```
+
+* Configure Git by username and email
+
+```bash
+git config --global user.name "<your_username>"
+git config --global user.email "<your_email@example.com>"
+```
+
+* Adding your SSH key to GitHub
+To authenticate with GitHub using SSH, you need to add your public SSH key to your GitHub account.
+First run the following command to display the content of your public key:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Copy the entire output, then follow these steps:
+
+```
+├──Go to your GitHub account.
+├──Click your profile picture and go to Settings.
+├──Go to SSH and GPG keys from the left menu.
+├──Click New SSH key.
+├──Enter a title for this key.
+├──Paste the copied public key into the Key field.
+└──Click Add SSH key.
+```
+
+* Cloning the repository using SSH
+To clone a repository using SSH:
+
+```
+├──Go to the repository on GitHub.
+├──Click the green Code button.
+├──Select the SSH tab.
+└──Copy the SSH URL.
+```
+
+Then run:
+
+```bash
+git clone <SSH URL>
+```
+
+Replace <SSH URL> with the one you just copied.
+
+* The project is now connected to GitHub and version controlled.
 ---
